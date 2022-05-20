@@ -48,7 +48,7 @@ function App() {
       url: `/api/4.0/livevideos?request_type=manage-json`,
       headers: {
         Authorization:
-          "Basic Y2VvQGFheGVjby5tbjp5MVFtcTA1bm5NbDI5MDRHOHFkZ3A4MG01NzdkNjMxbQ==",
+          "Basic Y2VvQGFheGVjby5tbjp1eGc0OTQwNnUwbzNMRjU2NTM5YzYxZDFnTDJBNUpaVQ==",
       },
     };
     axios(config).then(function (response) {
@@ -56,7 +56,6 @@ function App() {
       setVideos(response.data);
       setLoader(false);
     });
-
   }, []);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -76,6 +75,8 @@ function App() {
     color: "#428bca",
     padding: "20px",
     textDecoration: "none",
+    boxShadow: "1px 1px 6px -1px",
+    borderRadius: "5px",
     // background:
   };
   const loaderStyle = {
@@ -84,6 +85,8 @@ function App() {
   };
   const custom_card = {
     // border: "1px solid black",
+    boxShadow:
+      "rgb(0 0 0 / 20%) 8px 8px 4px -3px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px",
     backgroundColor: "#eeeeef",
     padding: "10px",
   };
@@ -132,9 +135,10 @@ function App() {
                   <CardActionArea>
                     <CardMedia
                       sx={{
-                        width:400,
-                        height:250,
-                        aspectRatio:"None"
+                        width: "auto",
+                        height: 250,
+                        aspectRatio: "None",
+                        borderRadius: "8px",
                       }}
                       image={row.thumbnails}
                       onClick={handleOpen}
@@ -146,7 +150,9 @@ function App() {
                         component="div"
                       ></Typography>
                       <Typography variant="body2" color="text.secondary">
-                        {row.description.length > 50 ? `${row.description.substring(0, 50)}...` : row.description}
+                        {row.description.length > 50
+                          ? `${row.description.substring(0, 50)}...`
+                          : row.description}
                       </Typography>
                     </CardContent>
 
@@ -158,7 +164,10 @@ function App() {
                       </a>
                     </div> */}
                   </CardActionArea>
-                  <a href={`/index.php?dispatch=pages.view&page_id=48&str_name=${row.hash}`} style={moreStyle}>
+                  <a
+                    href={`/index.php?dispatch=pages.view&page_id=48&str_name=${row.hash}`}
+                    style={moreStyle}
+                  >
                     <b>Дэлгэрэнгүй</b>
                   </a>
                 </Card>
