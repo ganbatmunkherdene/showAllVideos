@@ -45,10 +45,10 @@ function App() {
   useEffect(() => {
     const config = {
       method: "get",
-      url: `/api/4.0/livevideos?request_type=manage-json`,
+      url: `/api/4.0/livevideos&request_type=manage-json`,
       headers: {
         Authorization:
-          "Basic Y2VvQGFheGVjby5tbjp1eGc0OTQwNnUwbzNMRjU2NTM5YzYxZDFnTDJBNUpaVQ==",
+          "Basic Y2VvQGFheGVjby5tbjoxeDNvOTAwSDg5OTN6TDVrdHFBOUNBelU0NTJ6RVcyMQ==",
       },
     };
     axios(config).then(function (response) {
@@ -165,7 +165,7 @@ function App() {
                     </div> */}
                   </CardActionArea>
                   <a
-                    href={`/index.php?dispatch=pages.view&page_id=48&str_name=${row.hash}`}
+                    href={`/index.php?dispatch=Videos.live_page&hash=${row.hash}`}
                     style={moreStyle}
                   >
                     <b>Дэлгэрэнгүй</b>
